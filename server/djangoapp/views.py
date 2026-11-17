@@ -47,8 +47,10 @@ def registration(request):
         password=password, email=email)
     login(request, user)
     return JsonResponse({"userName": username, "status": "Authenticated"})
-    
+
 # Get the list of dealerships (all, or by state)
+
+
 def get_dealerships(request, state="All"):
     if state == "All":
         endpoint = "/fetchDealers"
@@ -96,7 +98,6 @@ def add_review(request):
             return JsonResponse({"status": 401, "message": "Error in posting review"})
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
-
 
 
 def get_cars(request):
